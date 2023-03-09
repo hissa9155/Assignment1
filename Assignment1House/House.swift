@@ -8,6 +8,10 @@
 import Foundation
 
 class House: CustomStringConvertible {
+  
+  //------------------------------------------------
+  // Properties
+  //------------------------------------------------
   private let DEF_BORDER:Character = "X"
   private let DEF_FILL:Character = "*"
   private let MIN_SIZE = 3
@@ -26,18 +30,23 @@ class House: CustomStringConvertible {
     """
   }
   
-  init(size: Int, border: Character = "X", fill: Character = "*") {
-    self.size = self.getValidSize(size: size)
-    self.border = border
-    self.fill = fill
-  }
-  
   private var triangleLength: Int {
     return size + OVERHANG_LENGTH * 2
   }
   
   private var length2Center: Int {
     return size + OVERHANG_LENGTH + 1
+  }
+  
+  
+  //-----------------------------------------
+  // Methods
+  //-----------------------------------------
+  
+  init(size: Int, border: Character = "X", fill: Character = "*") {
+    self.size = self.getValidSize(size: size)
+    self.border = border
+    self.fill = fill
   }
   
   var perimeter: Int {
