@@ -38,6 +38,14 @@ class House: CustomStringConvertible {
     return size + OVERHANG_LENGTH + 1
   }
   
+  var perimeter: Int {
+    return (size * 3) + (triangleLength * 2) + (OVERHANG_LENGTH * 2)
+  }
+  
+  var area: Double {
+    return pow(Double(triangleLength), 2) * sqrt(3.0) / 4 + pow(Double(size), 2)
+  }
+  
   
   //-----------------------------------------
   // Methods
@@ -47,14 +55,6 @@ class House: CustomStringConvertible {
     self.size = self.getValidSize(size: size)
     self.border = border
     self.fill = fill
-  }
-  
-  var perimeter: Int {
-    return (size * 3) + (triangleLength * 2) + (OVERHANG_LENGTH * 2)
-  }
-  
-  var area: Double {
-    return pow(Double(triangleLength), 2) * sqrt(3.0) / 4 + pow(Double(size), 2)
   }
   
   func grow() {
